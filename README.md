@@ -21,8 +21,6 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 ## Using Git
  - Authorize your org in VS Code
- - Click the green "Code" button above
- - Copy the URL
  - Run `git clone https://github.com/adam17amo/platformDev.git` in VS Code
  - Run `sfdx force:source:push` to push the files into your org
 
