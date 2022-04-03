@@ -1,8 +1,8 @@
 {
-  "name": "salesforce-app",
+  "name": "pluralsight-salesforce-dev",
   "private": true,
   "version": "1.0.0",
-  "description": "Salesforce App",
+  "description": "Salesforce Dev Courses Code",
   "scripts": {
     "lint": "eslint **/{aura,lwc}/**",
     "test": "npm run test:unit",
@@ -27,7 +27,7 @@
     "eslint-plugin-jest": "^24.3.6",
     "husky": "^7.0.0",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.3.2",
+    "prettier": "2.6.1",
     "prettier-plugin-apex": "^1.10.0"
   },
   "lint-staged": {
@@ -37,5 +37,10 @@
     "**/{aura,lwc}/**": [
       "eslint"
     ]
+  },
+  "author": "Adam Olshansky",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam17amo/platformdev"
   }
 }

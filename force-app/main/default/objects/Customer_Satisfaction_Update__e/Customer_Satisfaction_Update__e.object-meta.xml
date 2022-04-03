@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Fires when a Store&apos;s Customer Satisfaction score is updated</description>
+    <eventType>HighVolume</eventType>
+    <label>Customer Satisfaction Update</label>
+    <pluralLabel>Customer Satisfaction Updates</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

@@ -1,0 +1,24 @@
+<template>
+    <!-- Display a greeting and an update -->
+    <lightning-card title={greeting}>
+        <template if:true={record}>
+            <div class="slds-m-around_medium">
+                <p>{currentStatus}</p>
+            </div>
+        </template>
+    </lightning-card>
+
+    <!-- Display the cases related to the parent store record -->
+    <lightning-card title="Open Case Details">
+        <template if:true={caseList}>
+            <lightning-datatable 
+                data={caseList} 
+                columns={columns} 
+                key-field="Id">
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+    </lightning-card>
+</template>

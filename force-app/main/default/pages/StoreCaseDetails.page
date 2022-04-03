@@ -1,0 +1,15 @@
+<apex:page standardController="Store__c" extensions="StoreControllerExt" lightningStylesheets="true">
+    <!-- Display a greeting and an update -->
+    <apex:pageBlock title="Hello {!$User.FirstName}!">
+        You are viewing the {!Store__c.name} Store Case List in a Visualforce page.
+    </apex:pageBlock>
+    <!-- Display the cases related to the parent store record -->
+    <apex:pageBlock title="Open Case Details">
+        <apex:pageBlockTable value="{!openCases}" var="case">
+            <apex:column value="{!case.Subject}" />
+            <apex:column value="{!case.Status}" />
+            <apex:column value="{!case.Priority}" />
+            <apex:column value="{!case.CreatedDate}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

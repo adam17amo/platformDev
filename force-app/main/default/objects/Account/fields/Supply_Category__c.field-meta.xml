@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supply_Category__c</fullName>
+    <externalId>false</externalId>
+    <label>Supply Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Coffee</fullName>
+                <default>false</default>
+                <label>Coffee</label>
+            </value>
+            <value>
+                <fullName>Flavoring</fullName>
+                <default>false</default>
+                <label>Flavoring</label>
+            </value>
+            <value>
+                <fullName>Pastries</fullName>
+                <default>false</default>
+                <label>Pastries</label>
+            </value>
+            <value>
+                <fullName>Cups</fullName>
+                <default>false</default>
+                <label>Cups</label>
+            </value>
+            <value>
+                <fullName>Utensils</fullName>
+                <default>false</default>
+                <label>Utensils</label>
+            </value>
+            <value>
+                <fullName>Napkins</fullName>
+                <default>false</default>
+                <label>Napkins</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
