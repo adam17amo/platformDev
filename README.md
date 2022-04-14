@@ -20,9 +20,11 @@ The `sfdx-project.json` file contains useful configuration information for your 
 # Options for Install
 
 ## Using Git
- - Authorize your org in VS Code
- - Run `git clone https://github.com/adam17amo/platformDev.git` in VS Code
- - Run `sfdx force:source:push` to push the files into your org
+
+- Authorize your org in VS Code
+- Run `git clone https://github.com/adam17amo/platformDev.git` in VS Code
+- Run `sfdx force:source:push` to push the files into your org
 
 ## Installing Package
-- Install [this package](https://www.google.com) into your org
+
+- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdAk) into your org
