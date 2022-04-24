@@ -39,7 +39,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>CustomerPriority__c</picklist>
+        <picklist>Customer_Priority__c</picklist>
         <values>
             <fullName>High</fullName>
             <default>false</default>

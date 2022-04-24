@@ -21,10 +21,13 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 ## Using Git
 
+- Create a new scratch org or Developer Edition org
+- Create a local folder to store your source code and navigate to that folder
+- Run `git clone https://github.com/adam17amo/platformDev.git` in VS Code to bring the source code to your local computer
 - Authorize your org in VS Code
-- Run `git clone https://github.com/adam17amo/platformDev.git` in VS Code
-- Run `sfdx force:source:push` to push the files into your org
+- Run `sfdx force:source:deploy -p force-app/main/default` for a Developer Edition org or `sfdx force:source:push` for a scratch org to push the files into your org
+- Run `sfdx force:user:permset:assign --permsetname Wired_Brain` to assign yourself the permission set
 
 ## Installing Package
 
-- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdAk) into your org
+- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdEX) into your org
