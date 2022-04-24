@@ -36,7 +36,7 @@
             </value>
         </filters>
         <inputAssignments>
-            <field>CustomerPriority__c</field>
+            <field>Customer_Priority__c</field>
             <value>
                 <stringValue>High</stringValue>
             </value>
@@ -60,7 +60,7 @@
             </value>
         </filters>
         <inputAssignments>
-            <field>CustomerPriority__c</field>
+            <field>Customer_Priority__c</field>
             <value>
                 <stringValue>Low</stringValue>
             </value>
@@ -91,7 +91,7 @@
             </value>
         </filters>
         <inputAssignments>
-            <field>CustomerPriority__c</field>
+            <field>Customer_Priority__c</field>
             <value>
                 <stringValue>Medium</stringValue>
             </value>
