@@ -28,17 +28,6 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Active__c</picklist>
-        <values>
-            <fullName>No</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Yes</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Customer_Priority__c</picklist>
         <values>
             <fullName>High</fullName>
@@ -296,7 +285,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>UpsellOpportunity__c</picklist>
+        <picklist>Upsell_Opportunity__c</picklist>
         <values>
             <fullName>Maybe</fullName>
             <default>false</default>
