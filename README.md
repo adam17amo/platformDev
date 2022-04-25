@@ -21,7 +21,7 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 ## Using Git
 
-- Create a new scratch org or Developer Edition org
+- Create a new [scratch org](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_scratch_orgs_create.htm) or Developer Edition org
 - Create a local folder to store your source code and navigate to that folder
 - Run `git clone https://github.com/adam17amo/platformDev.git` in VS Code to bring the source code to your local computer
 - Authorize your org in VS Code
@@ -30,4 +30,4 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 ## Installing Package
 
-- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdEX) into your org
+- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdEc) into your org
