@@ -208,7 +208,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>SLA__c</picklist>
+        <picklist>Service_Level_Agreement__c</picklist>
         <values>
             <fullName>Bronze</fullName>
             <default>false</default>
