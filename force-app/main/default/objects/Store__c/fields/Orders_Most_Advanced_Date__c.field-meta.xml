@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Orders_Most_Advanced_Date__c</fullName>
+    <externalId>false</externalId>
+    <label>Orders Most Advanced Date</label>
+    <summarizedField>Store_Supply_Order__c.Date_of_Delivery__c</summarizedField>
+    <summaryFilterItems>
+        <field>Store_Supply_Order__c.Order_Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed, Cancelled</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Store_Supply_Order__c.Store__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
