@@ -1,6 +1,9 @@
 # Welcome to my Course
 
-Thank you for starting one of my courses on Pluralsight! Here's some information to help you get the configuration and code used throughout the courses installed into your own org.
+Thank you for starting one of my courses on Pluralsight! Here's some information to help you get the configuration and code used throughout the courses installed into your own org. This repository covers the following courses
+
+- Salesforce Development: Fundamentals
+- Salesforce Development: Data Modeling and Management
 
 ## How Do You Plan to Deploy Your Changes?
 
@@ -30,4 +33,4 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 ## Installing Package
 
-- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdEh) into your org
+- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdEm) into your org
