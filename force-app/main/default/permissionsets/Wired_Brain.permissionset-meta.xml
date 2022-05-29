@@ -24,7 +24,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Partnership_Age__c</field>
+        <field>Account.Partnership_Age_Years__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -59,7 +59,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Store_Supply_Order__c.Date_of_Delivery__c</field>
+        <field>Store_Supply_Order__c.Delivery_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -75,6 +75,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Store_Supply_Order__c.Quantity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Store__c.Buzz_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -184,7 +189,7 @@
     </recordTypeVisibilities>
     <tabSettings>
         <tab>Store_Supply_Order__c</tab>
-        <visibility>Available</visibility>
+        <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
         <tab>Store__c</tab>

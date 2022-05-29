@@ -33,4 +33,4 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 ## Installing Package
 
-- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdEm) into your org
+- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdQJ) into your org
