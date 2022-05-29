@@ -3,7 +3,7 @@
     <fullName>Orders_Most_Advanced_Date__c</fullName>
     <externalId>false</externalId>
     <label>Orders Most Advanced Date</label>
-    <summarizedField>Store_Supply_Order__c.Date_of_Delivery__c</summarizedField>
+    <summarizedField>Store_Supply_Order__c.Delivery_Date__c</summarizedField>
     <summaryFilterItems>
         <field>Store_Supply_Order__c.Order_Status__c</field>
         <operation>notEqual</operation>

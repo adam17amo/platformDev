@@ -22,15 +22,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Buzz_Id__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Latest_Health_Score__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Customer_Satisfaction_Score__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Total_Supply_Spend__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -41,6 +41,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Date_of_Establishment__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Total_Supply_Spend__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

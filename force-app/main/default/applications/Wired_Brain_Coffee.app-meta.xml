@@ -13,6 +13,7 @@
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
     <tabs>Store__c</tabs>
+    <tabs>Store_Supply_Order__c</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-report</tabs>

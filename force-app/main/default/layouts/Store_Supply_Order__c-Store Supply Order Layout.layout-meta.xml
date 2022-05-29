@@ -28,7 +28,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Date_of_Delivery__c</field>
+                <field>Delivery_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>

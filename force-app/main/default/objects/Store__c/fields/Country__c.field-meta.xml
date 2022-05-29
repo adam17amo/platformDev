@@ -37,11 +37,6 @@
                 <label>Mexico</label>
             </value>
             <value>
-                <fullName>Russia</fullName>
-                <default>false</default>
-                <label>Russia</label>
-            </value>
-            <value>
                 <fullName>United Kingdom</fullName>
                 <default>false</default>
                 <label>United Kingdom</label>
