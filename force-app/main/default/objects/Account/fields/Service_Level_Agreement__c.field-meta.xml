@@ -10,6 +10,16 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
+                <fullName>Platinum Plus</fullName>
+                <default>false</default>
+                <label>Platinum Plus</label>
+            </value>
+            <value>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+                <label>Platinum</label>
+            </value>
+            <value>
                 <fullName>Gold</fullName>
                 <default>false</default>
                 <label>Gold</label>
@@ -20,14 +30,14 @@
                 <label>Silver</label>
             </value>
             <value>
-                <fullName>Platinum</fullName>
-                <default>false</default>
-                <label>Platinum</label>
-            </value>
-            <value>
                 <fullName>Bronze</fullName>
                 <default>false</default>
                 <label>Bronze</label>
+            </value>
+            <value>
+                <fullName>Blue</fullName>
+                <default>false</default>
+                <label>Blue</label>
             </value>
         </valueSetDefinition>
     </valueSet>

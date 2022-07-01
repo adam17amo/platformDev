@@ -4,6 +4,7 @@ Thank you for starting one of my courses on Pluralsight! Here's some information
 
 - Salesforce Development: Fundamentals
 - Salesforce Development: Data Modeling and Management
+- Salesforce Development: Process Automation and Logic 
 
 ## How Do You Plan to Deploy Your Changes?
 
@@ -33,4 +34,4 @@ The `sfdx-project.json` file contains useful configuration information for your 
 
 ## Installing Package
 
-- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdQJ) into your org
+- Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zdul) into your org

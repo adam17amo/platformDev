@@ -59,4 +59,92 @@ public with sharing class StoreTriggerHandler {
         }
         return (newStore.Customer_Satisfaction_Score__c < 75);
     }
+
+    /**
+     * @description - Gets coffee prices for types of coffee sold at a given store
+     * @param coffee Types of coffee to get prices for
+     * @return Custom structure containing prices for coffee to display on the flow
+     */
+    @InvocableMethod(label='Update Coffee Prices' 
+                    description='Gets the coffee prices for coffee sold at the stores' 
+                    category= 'Store')
+    public static List<CoffeePrice> updateCoffeePrices (List<String> coffee) {
+        String formattedPrices = '';
+
+        // Make an external callout to get the coffee prices
+        HttpRequest request = constructHttpRequest(coffee[0]);
+        HttpResponse response = getResponseFromApi(request);
+
+        // Parse the external response 
+        CoffeeApiResponse coffeeApiResult =
+                                    (CoffeeApiResponse)JSON.deserialize(response.getBody(), CoffeeApiResponse.class);
+        // Construct the prices in a readable format for the flow
+        for(Rate rate : coffeeApiResult.rates) {
+            formattedPrices += rate.coffeeName + ' price: $' + rate.price + ' ' + coffeeApiResult.unit + '\n';
+        }
+        System.debug('Formatted prices is ' + formattedPrices);
+
+        // Construct object to send back to flow
+        CoffeePrice coffeePrice = new CoffeePrice();
+        coffeePrice.prices = formattedPrices;
+
+        return new List<CoffeePrice>{coffeePrice}; 
+    }
+
+    public class CoffeePrice {
+        @InvocableVariable(label='Prices for flow' description='Prices received from the api' required=true)
+        public String prices;
+    }
+
+    /**
+     * @description - Construct an Http Request
+     * @param typesToSearch Types of coffee to get prices for
+     * @return Http Request to make
+     */
+    private static HttpRequest constructHttpRequest(String typesToSearch) {
+        HttpRequest req = new HttpRequest();
+        // Made up endpoint
+        System.debug('Searching for types ' + typesToSearch);
+        req.setEndpoint('http://www.currentcoffeeprices.com/wiredBrainCoffee/types?' + typesToSearch);
+        req.setMethod('GET');
+
+        // Specify the required user name, password, and header information
+        String username = 'wiredBrainCoffee';
+        String password = 'w1r3dBr41nC0ff33!';
+
+        Blob headerValue = Blob.valueOf(username + ':' + password);
+        String authorizationHeader = 'Basic ' + EncodingUtil.base64Encode(headerValue);
+        req.setHeader('Authorization', authorizationHeader);
+
+        return req;
+    }
+
+    /**
+     * @description - Make an external callout
+     * @param request Request to use to make the callout
+     * @return Response from the external system
+     */
+    private static HttpResponse getResponseFromApi(HttpRequest request) {
+        Http http = new Http();
+        // Call a mock response here instead of an actual one
+        // HttpResponse response = http.send(request);
+        HttpResponse response = new HttpResponse();
+        response.setBody(MockCoffeePriceResponse.coffeeApiResponse);
+        response.setStatusCode(200);
+        response.setStatus('OK');
+        
+        return response;
+    }
+
+    public class CoffeeApiResponse {
+        public String base;
+        public Date currentDate;
+        List<Rate> rates;
+        String unit;
+    }
+
+    public class Rate {
+        public String coffeeName;
+        public Decimal price;
+    }
 }

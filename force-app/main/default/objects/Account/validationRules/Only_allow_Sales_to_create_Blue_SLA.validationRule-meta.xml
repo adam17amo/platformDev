@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Only_allow_Sales_to_create_Blue_SLA</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(Service_Level_Agreement__c, &apos;Blue&apos;) &amp;&amp;  NOT($Profile.Name = &apos;Custom: Sales Profile&apos;)</errorConditionFormula>
+    <errorMessage>Only Sales employees can set the SLA of an Account to Blue</errorMessage>
+</ValidationRule>
