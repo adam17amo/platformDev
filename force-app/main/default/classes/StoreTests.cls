@@ -73,4 +73,14 @@ public with sharing class StoreTests {
         System.assertEquals('New', openCases[0].Status, 'Status should be New');
         System.assertEquals('High', openCases[0].Priority, 'Priority should be High');
     }
+
+    @isTest
+    static void testInvocableMethod() {
+        List<String> coffeeTypes = new List<String>{'Arabica;Robusta'};
+        List<StoreTriggerHandler.CoffeePrice> coffeePrices = StoreTriggerHandler.updateCoffeePrices(coffeeTypes);
+        String prices = coffeePrices[0].prices;
+        System.debug(coffeePrices[0].prices);
+        System.assert(prices.contains('Arabica'), 'Arabica should be part of the response');
+        System.assert(prices.contains('Robusta'), 'Robusta should be part of the response');
+    }
 }
