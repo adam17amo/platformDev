@@ -1,0 +1,35 @@
+<apex:page controller="LeadCustomController" lightningStylesheets="true" title="Custom Controller">
+    <!-- Display a greeting and a message -->
+    <apex:pageBlock title="Hello {!$User.FirstName}!">
+        Welcome to the Wired Brain Coffee Lead Creation Page with a {!pageType}
+    </apex:pageBlock>
+    <apex:messages/>
+    <!-- Display a form to show fields for an existing lead -->
+    <apex:form>
+        <apex:pageBlock title="New or Existing Lead">
+            <apex:pageBlockButtons>
+                <apex:commandButton id="saveButton" action="{!save}" value="Save" />
+                <apex:commandButton id="cancelButton" action="{!cancel}" value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Lead Information" columns="2">
+                <apex:inputField value="{!currentLead.FirstName}" />
+                <apex:inputField value="{!currentLead.LastName}" />
+                <apex:inputField value="{!currentLead.Email}" />
+                <apex:inputField value="{!currentLead.Company}" />
+                <apex:inputField value="{!currentLead.LeadSource}" />
+                <apex:inputField value="{!currentLead.Rating}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <!-- Display existing leads -->
+        <apex:pageBlock>
+            <apex:pageBlockTable value="{!leads}" var="l">
+                <apex:column value="{!l.FirstName}" />
+                <apex:column value="{!l.LastName}" />
+                <apex:column value="{!l.Email}" />
+                <apex:column value="{!l.Company}" />
+                <apex:column value="{!l.LeadSource}" />
+                <apex:column value="{!l.Rating}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

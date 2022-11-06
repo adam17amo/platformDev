@@ -1,0 +1,19 @@
+<template>
+    <!-- Search bar -->
+    <lightning-card title="Vulnerable Account Search">
+        <lightning-input type="search" onchange={handleSearchTermChange} variant="label-hidden"
+            class="slds-var-m-bottom_small slds-var-p-around_small" label="Search"
+            placeholder="Search for accounts by name" value={searchTerm}>
+        </lightning-input>
+    </lightning-card>
+    <!-- Display the accounts -->
+    <lightning-card title="Accounts">
+        <template if:true={newAccountList.data}>
+            <lightning-datatable data={newAccountList.data} columns={columns} key-field="Id">
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,29 @@
+<template>
+    <!-- Display orders if they exist -->
+    <template if:true={hasStoreSupplyOrders}>
+        <header class="slds-text-heading_small">
+            <div>
+                Orders Total:
+                <lightning-formatted-number value={totalSupplySpend} format-style="currency" currency-code="USD">
+                </lightning-formatted-number>
+            </div>
+            <div>Total Items: {orderQuantity}</div>
+        </header>
+        <div class="slds-var-p-around_x-small slds-grid slds-wrap">
+            <!-- For each order, display it in a custom component -->
+            <template for:each={storeSupplyOrders} for:item="order">
+                <div class="slds-box" key={order.Id}>
+                    <div class="slds-col">
+                        <!-- Child component with custom event handler -->
+                        <c-store-order order-item={order} onorderitemchange={handleOrderItemChange}>
+                        </c-store-order>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+    <!-- Display a message if there aren't any orders -->
+    <template if:false={hasStoreSupplyOrders}>
+        There are no Store Supply Orders for this store.
+    </template>
+</template>

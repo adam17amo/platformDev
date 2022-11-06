@@ -1,0 +1,36 @@
+<apex:page controller="OutputEncoder" lightningStylesheets="true" title="Output Samples">
+    <!-- Different types of outputs -->
+    <apex:pageBlock title="Different Outputs">
+        <apex:outputText>This page is vulnerable to attack.</apex:outputText>
+        <br/>
+        <br/>
+        <div id='greet' />
+        <!-- Raw input placed directly into the DOM -->
+        <script>
+            document.querySelector('#greet').innerHTML = 'Unencoded param is {!$CurrentPage.parameters.input}';
+        </script>
+        <br/>
+        <div id='encodedGreet' />
+        <!-- Encoded input with HTMLENCODE-->
+        <script>
+            var x = '{!HTMLENCODE($CurrentPage.parameters.input)}'; //safe
+            document.querySelector('#encodedGreet').innerHTML = 'HTMLENCODE param is ' + x;
+        </script>
+        <br/>
+        <!-- Auto encoded output with Visualforce tags -->
+        <apex:outputText>
+            Visualforce tag encoded param is {!$CurrentPage.parameters.input}
+        </apex:outputText>
+        <br/>
+        <br/>
+        <!-- Auto encoded output with a Div -->
+        <div>
+            Div encoded param is {!$CurrentPage.parameters.input}
+        </div>
+        <br/>
+        <!--Encoded output in Apex using escapeHtml4() -->
+        <div>
+            Output encoded param is {!encodedOutput}
+        </div>
+    </apex:pageBlock>
+</apex:page>

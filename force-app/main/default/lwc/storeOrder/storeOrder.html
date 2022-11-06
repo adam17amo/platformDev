@@ -1,0 +1,39 @@
+<!-- Display a Store Supply Order record -->
+<template>
+    <div class="content">
+        <!-- Display image for order -->
+        <img src={orderItem.ImageUrl} class="product slds-align_absolute-center" alt="Product picture" width=40
+            height=30 />
+        <p class="title slds-align_absolute-center">
+            {orderItem.Name}
+        </p>
+        <div class="form slds-align_absolute-center">
+            <!-- Display the editable fields, Order Amount and Quantity -->
+            <div>
+                <lightning-input onchange={handleFormChange} value={orderItem.Order_Amount__c}
+                    data-field-name="Order_Amount__c" label="Amount" type="number" formatter="currency">
+                </lightning-input>
+                <lightning-input onchange={handleFormChange} value={orderItem.Quantity__c} data-field-name="Quantity__c"
+                    label="Quantity" type="number"></lightning-input>
+            </div>
+            <!-- Display the read only fields, Order Status and Product Ordered -->
+            <div>
+                <lightning-input value={orderItem.Order_Status__c} data-field-name="Order_Status__c" label="Status"
+                    type="string" readonly>
+                </lightning-input>
+                <lightning-input value={orderItem.Product_Ordered__c} data-field-name="Product_Ordered__c"
+                    label="Product" type="string" readonly>
+                </lightning-input>
+            </div>
+        </div>
+        <!-- Display the save and cancel buttons -->
+        <div class="action-buttons slds-align_absolute-center">
+            <template if:true={isModified}>
+                <lightning-button-icon onclick={saveOrderItem} icon-name="utility:check" variant="bare" size="large">
+                </lightning-button-icon>
+                <lightning-button-icon onclick={cancelChanges} icon-name="utility:close" variant="bare" size="large">
+                </lightning-button-icon>
+            </template>
+        </div>
+    </div>
+</template>

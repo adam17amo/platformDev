@@ -1,0 +1,32 @@
+<apex:page controller="StoreCustomController" lightningStylesheets="true" title="Custom Controller" docType="html-5.0">
+    <!-- Display a greeting and a message -->
+    <apex:pageBlock title="Hello {!$User.FirstName} with the {!$Profile.Name} profile!">
+        Welcome to the Wired Brain Coffee Custom Store Page
+    </apex:pageBlock>
+    <apex:messages/>
+    <!-- Display a form to show fields for a store -->
+    <apex:form>
+        <apex:pageBlock title="New or Existing Store">
+            <apex:pageBlockButtons>
+                <apex:commandButton id="saveButton" action="{!save}" value="Save" />
+                <apex:commandButton id="cancelButton" action="{!cancel}" value="Cancel" />
+            </apex:pageBlockButtons>
+            <!-- Inputs without security -->
+            <apex:pageBlockSection title="Store Information" columns="2">
+                <apex:input value="{!name}" label="Name" id="nameInput" type="text" />
+                <apex:input value="{!buzzId}" label="Buzz Id" id="buzzIdInput" type="text" />
+                <apex:input value="{!city}" label="City" id="cityInput" type="text" />
+                <apex:input value="{!stateProvince}" label="State/Province" id="stateInput" type="text" />
+                <apex:input value="{!country}" label="Country" id="countryInput" type="text" />
+            </apex:pageBlockSection>
+            <!-- Inputs using inputField with security -->
+            <!-- <apex:pageBlockSection title="Store Information" columns="2">
+                <apex:inputField value="{!currentStore.Name}" />
+                <apex:inputField value="{!currentStore.Buzz_Id__c}" />
+                <apex:inputField value="{!currentStore.City__c}" />
+                <apex:inputField value="{!currentStore.State_Province__c}" />
+                <apex:inputField value="{!currentStore.Country__c}" />
+            </apex:pageBlockSection> -->
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
