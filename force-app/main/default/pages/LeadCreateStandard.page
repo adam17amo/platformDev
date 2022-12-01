@@ -1,0 +1,36 @@
+<apex:page standardController="Lead" lightningStylesheets="true" title="Standard Controller">
+    <!-- Uncomment line 3 and comment out the line 1 to see the StandardSetController in action -->
+    <!-- <apex:page standardController="Lead" lightningStylesheets="true" title="Standard Controller" recordSetVar="leads"> -->
+    <!-- Display a greeting and a message -->
+    <apex:pageBlock title="Hello {!$User.FirstName}!">
+        Welcome to the Wired Brain Coffee Lead Creation Page with a Standard Controller
+    </apex:pageBlock>
+    <!-- Display a form to create a new lead -->
+    <apex:form>
+        <apex:pageBlock title="New Lead">
+            <apex:pageBlockButtons>
+                <apex:commandButton id="saveButton" action="{!save}" value="Save" />
+                <apex:commandButton id="cancelButton" action="{!cancel}" value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Lead Information" columns="2">
+                <apex:inputField value="{!lead.FirstName}" />
+                <apex:inputField value="{!lead.LastName}" />
+                <apex:inputField value="{!lead.Email}" />
+                <apex:inputField value="{!lead.Company}" />
+                <apex:inputField value="{!lead.LeadSource}" />
+                <apex:inputField value="{!lead.Rating}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <!-- Display existing leads, uncomment this block if using the StandardSetController -->
+        <!-- <apex:pageBlock>
+            <apex:pageBlockTable value="{!leads}" var="l">
+                <apex:column value="{!l.FirstName}" />
+                <apex:column value="{!l.LastName}" />
+                <apex:column value="{!l.Email}" />
+                <apex:column value="{!l.Company}" />
+                <apex:column value="{!l.LeadSource}" />
+                <apex:column value="{!l.Rating}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock> -->
+    </apex:form>
+</apex:page>

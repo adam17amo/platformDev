@@ -1,0 +1,74 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "GloboMart"
+            },
+            "Name": "Globo Mart",
+            "AccountNumber": "001",
+            "AnnualRevenue": 5000000,
+            "Customer_Priority__c": "High",
+            "Primary_Contact_Email__c": "example@youremailhere.com",
+            "Service_Level_Agreement__c": "Gold",
+            "Upsell_Opportunity__c": "Maybe",
+            "RecordTypeId": "supplierRecordTypeId"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "CupsEmporium"
+            },
+            "Name": "Cups Emporium",
+            "AccountNumber": "002",
+            "AnnualRevenue": 1000000,
+            "Customer_Priority__c": "High",
+            "Primary_Contact_Email__c": "example@youremailhere.com",
+            "Service_Level_Agreement__c": "Platinum Plus",
+            "Upsell_Opportunity__c": "Yes",
+            "RecordTypeId": "supplierRecordTypeId"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "ShakeNBakeBakery"
+            },
+            "Name": "Shake 'N Bake Bakery",
+            "AccountNumber": "003",
+            "AnnualRevenue": 1500000,
+            "Customer_Priority__c": "Low",
+            "Primary_Contact_Email__c": "example@youremailhere.com",
+            "Service_Level_Agreement__c": "Platinum Plus",
+            "Upsell_Opportunity__c": "No",
+            "RecordTypeId": "supplierRecordTypeId"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "ForkInTheRoadWarehouse"
+            },
+            "Name": "Fork in the Road Warehouse",
+            "AccountNumber": "004",
+            "AnnualRevenue": 3000000,
+            "Customer_Priority__c": "Low",
+            "Primary_Contact_Email__c": "example@youremailhere.com",
+            "Service_Level_Agreement__c": "Platinum Plus",
+            "Upsell_Opportunity__c": "Yes",
+            "RecordTypeId": "supplierRecordTypeId"
+        },
+        {
+            "attributes": {
+                "type": "Account",
+                "referenceId": "ThanksALatteRoasters"
+            },
+            "Name": "Thanks a Latte Roasters",
+            "AccountNumber": "005",
+            "AnnualRevenue": 2000000,
+            "Customer_Priority__c": "Low",
+            "Primary_Contact_Email__c": "example@youremailhere.com",
+            "Service_Level_Agreement__c": "Silver",
+            "Upsell_Opportunity__c": "Yes",
+            "RecordTypeId": "supplierRecordTypeId"
+        }
+    ]
+}

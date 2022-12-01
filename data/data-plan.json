@@ -1,0 +1,23 @@
+[
+    {
+        "sobject": "Store__c",
+        "saveRefs": true,
+        "files": [
+            "stores.json"
+        ]
+    },
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "files": [
+            "suppliers.json"
+        ]
+    },
+    {
+        "sobject": "Store_Supply_Order__c",
+        "resolveRefs": true,
+        "files": [
+            "store_supply_orders.json"
+        ]
+    }
+]

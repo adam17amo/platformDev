@@ -24,10 +24,41 @@ public with sharing class StoreSupplyOrderTests {
         order.Order_Amount__c = 10000;
         insert order;
 
-        System.assert(StoreSupplyOrderTriggerHandler.flowVariableMap.keySet().contains('SupplierList'),
+        Assert.isTrue(StoreSupplyOrderTriggerHandler.flowVariableMap.keySet().contains('SupplierList'),
                     'The flow variable map should contain the supplier list variable');
-        List<Account> suppliersInFlow = (List<Account>)StoreSupplyOrderTriggerHandler.flowVariableMap.get('SupplierList');
-        System.assertEquals(suppliers[0].Id, suppliersInFlow[0].Id,
+        Test.startTest();
+        List<Account> suppliersInFlow =
+                    (List<Account>)StoreSupplyOrderTriggerHandler.flowVariableMap.get('SupplierList');
+        Test.stopTest();
+        Assert.areEqual(suppliers[0].Id, suppliersInFlow[0].Id,
                     'The supplier sent to the flow should match the supplier on the order');
+    }
+
+    @isTest
+    static void testStoreSupplyOrderController() {
+        List<Store__c> stores = [SELECT ID FROM Store__c
+                                WHERE Name = 'Awesome Store'];
+        Id storeId = stores[0].Id;
+        List<Account> suppliers = [SELECT ID FROM Account LIMIT 1];
+
+        List<Store_Supply_Order__c> newOrders = new List<Store_Supply_Order__c>();
+        for(Integer i = 0; i < 5; i++) {
+            Store_Supply_Order__c order = new Store_Supply_Order__c();
+            order.Store__c = storeId;
+            order.Supplier__c = suppliers[0].Id;
+            order.Order_Amount__c = 10000 * i;
+            newOrders.add(order);
+        }
+        insert newOrders;
+
+        List<Store_Supply_Order__c> ordersOnStore = [SELECT Id
+                                                    FROM Store_Supply_Order__c
+                                                    WHERE Store__c = :storeId];
+        Assert.isTrue(ordersOnStore.size() > 0, 'There should be some store supply orders');
+        Test.startTest();
+        List<Store_Supply_Order__c> ordersFromController = StoreSupplyOrderController.getStoreSupplyOrders(storeId);
+        Test.stopTest();
+        Assert.areEqual(ordersOnStore.size(), ordersFromController.size(),
+                    'The controller should get the right number of orders');
     }
 }

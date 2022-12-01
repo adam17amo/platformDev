@@ -1,0 +1,40 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Store__c",
+                "referenceId": "SanFranciscoHub"
+            },
+            "Name": "San Francisco Hub",
+            "Buzz_Id__c": "WBC001",
+            "City__c": "San Francisco",
+            "Country__c": "United States",
+            "Latest_Health_Score__c": 100,
+            "State_Province__c": "CA"
+        },
+        {
+            "attributes": {
+                "type": "Store__c",
+                "referenceId": "SeattleHub"
+            },
+            "Name": "Seattle Hub",
+            "Buzz_Id__c": "WBC002",
+            "City__c": "Seattle",
+            "Country__c": "United States",
+            "Latest_Health_Score__c": 100,
+            "State_Province__c": "WA"
+        },
+        {
+            "attributes": {
+                "type": "Store__c",
+                "referenceId": "PhoenixHub"
+            },
+            "Name": "Phoenix Hub",
+            "Buzz_Id__c": "WBC003",
+            "City__c": "Phoenix",
+            "Country__c": "United States",
+            "Latest_Health_Score__c": 100,
+            "State_Province__c": "AZ"
+        }
+    ]
+}
