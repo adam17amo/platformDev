@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Types_of_Coffee__c</fullName>
+    <description>Types of coffee served at this store</description>
     <externalId>false</externalId>
     <label>Types of Coffee</label>
     <required>false</required>
