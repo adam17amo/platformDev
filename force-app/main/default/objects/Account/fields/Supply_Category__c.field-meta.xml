@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Supply_Category__c</fullName>
+    <description>Category of product that this supplier provides</description>
     <externalId>false</externalId>
     <label>Supply Category</label>
     <required>false</required>

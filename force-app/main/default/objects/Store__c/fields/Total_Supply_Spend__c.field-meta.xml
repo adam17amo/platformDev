@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Total_Supply_Spend__c</fullName>
+    <description>The sum of order amounts of all Store Supply Orders under this store</description>
     <externalId>false</externalId>
     <label>Total Supply Spend</label>
     <summarizedField>Store_Supply_Order__c.Order_Amount__c</summarizedField>

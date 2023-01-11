@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Latest_Health_Score__c</fullName>
+    <description>Score out of 100 indicating the result of a health department review</description>
     <externalId>false</externalId>
     <label>Latest Health Score</label>
     <precision>18</precision>

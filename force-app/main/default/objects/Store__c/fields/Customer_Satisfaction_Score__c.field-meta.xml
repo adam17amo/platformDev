@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Customer_Satisfaction_Score__c</fullName>
+    <description>Percentage of customers who reported positive experiences at this store</description>
     <externalId>false</externalId>
     <label>Customer Satisfaction Score</label>
     <precision>17</precision>

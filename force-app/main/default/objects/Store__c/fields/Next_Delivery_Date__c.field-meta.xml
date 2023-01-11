@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Next_Delivery_Date__c</fullName>
+    <description>The date that the next active Store Supply Order is set to be delivered</description>
     <externalId>false</externalId>
     <label>Next Delivery Date</label>
     <summarizedField>Store_Supply_Order__c.Delivery_Date__c</summarizedField>
