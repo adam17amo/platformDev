@@ -11,8 +11,8 @@ public with sharing class StoreSupplyOrderTriggerHandler {
      */
     public static void handleAfterInsert(List<Store_Supply_Order__c> newOrders) {
         Set<Id> supplierIds = new Set<Id>();
-        for(Store_Supply_Order__c orders : newOrders){
-            supplierIds.add(orders.Supplier__c);
+        for(Store_Supply_Order__c order : newOrders){
+            supplierIds.add(order.Supplier__c);
         }
         // Get the suppliers of these orders
         List<Account> suppliers = [SELECT Name, Primary_Contact_Email__c 
