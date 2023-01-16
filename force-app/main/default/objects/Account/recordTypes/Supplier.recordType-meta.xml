@@ -28,6 +28,21 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Customer_Priority__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Industry</picklist>
         <values>
             <fullName>Agriculture</fullName>
@@ -193,6 +208,60 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Service_Level_Agreement__c</picklist>
+        <values>
+            <fullName>Blue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bronze</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platinum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Platinum Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silver</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supply_Category__c</picklist>
+        <values>
+            <fullName>Coffee</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cups</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flavoring</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Napkins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pastries</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utensils</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Type</picklist>
         <values>
             <fullName>Channel Partner %2F Reseller</fullName>
@@ -220,6 +289,21 @@
         </values>
         <values>
             <fullName>Technology Partner</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Upsell_Opportunity__c</picklist>
+        <values>
+            <fullName>Maybe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
             <default>false</default>
         </values>
     </picklistValues>

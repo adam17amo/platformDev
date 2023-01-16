@@ -36,6 +36,21 @@
                 <default>false</default>
                 <label>Cancelled</label>
             </value>
+            <value>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+                <label>Pending Approval</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Delayed</fullName>
+                <default>false</default>
+                <label>Delayed</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
