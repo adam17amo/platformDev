@@ -1,0 +1,34 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Case",
+                "referenceId": "SFHubCase"
+            },
+            "Subject": "Issue Identified",
+            "Status": "New",
+            "Priority": "High",
+            "Store__c": "@SanFranciscoHub"
+        },
+        {
+            "attributes": {
+                "type": "Case",
+                "referenceId": "SeattleHubCase"
+            },
+            "Subject": "Issue Identified",
+            "Status": "New",
+            "Priority": "High",
+            "Store__c": "@SeattleHub"
+        },
+        {
+            "attributes": {
+                "type": "Case",
+                "referenceId": "PhxHubCase"
+            },
+            "Subject": "Issue Identified",
+            "Status": "New",
+            "Priority": "High",
+            "Store__c": "@PhoenixHub"
+        }
+    ]
+}
