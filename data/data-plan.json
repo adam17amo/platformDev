@@ -19,5 +19,12 @@
         "files": [
             "store_supply_orders.json"
         ]
+    },
+    {
+        "sobject": "Case",
+        "resolveRefs": true,
+        "files": [
+            "cases.json"
+        ]
     }
 ]

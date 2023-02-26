@@ -6,6 +6,7 @@ Thank you for starting one of my courses on Pluralsight! Here's some information
 - Salesforce Development: Data Modeling and Management
 - Salesforce Development: Process Automation and Logic
 - Salesforce Development: User Interface 
+- Salesforce Development: Testing, Debugging, and Deployment
 
 If you run into any issues or want to leave some feedback for me, feel free to drop a comment in Pluralsight or reach out to me on [Twitter](https://twitter.com/adam17amo) or [LinkedIn](https://www.linkedin.com/in/adamolshansky/)!
 
@@ -69,7 +70,7 @@ Choose whether you want to use a developer org or scratch org. Choose a [develop
 
 ## Upload Code by Installing Package
 
-1. Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zed0) into your org
+1. Install [this package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5f000000zem7) into your org
 2. Assign yourself the Wired Brain permission set
 3. (Optional) Create some sample data for Stores, Suppliers (Accounts), and Store Supply Orders. Feel free to use the data folder as a guide
 4. (Optional) Download the code to your computer to follow along

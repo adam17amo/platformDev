@@ -7,18 +7,7 @@
 public with sharing class StoreTests {
     @testSetup
     static void createRecords(){
-       Store__c store = new Store__c();
-       store.Name = 'San Francisco Hub';
-       store.Latest_Health_Score__c = 100;
-       store.Customer_Satisfaction_Score__c = 90.00;
-       store.Date_of_Establishment__c = Date.today().addYears(-1);
-       store.Street__c = '123 Sesame St.';
-       store.City__c = 'San Francisco';
-       store.State_Province__c = 'CA';
-       store.Zip_Postal_Code__c = '95102';
-       store.Country__c = 'United States';
-       store.Buzz_Id__c = 'WBC001';
-       insert store;
+        TestFactory.createStores(1, true);
     }
 
     @isTest
@@ -27,27 +16,31 @@ public with sharing class StoreTests {
         // Get the initial store and any existing cases
         List<Store__c> stores = [SELECT Id, Customer_Satisfaction_Score__c
                                  FROM Store__c
-                                 WHERE Name = 'San Francisco Hub'];
+                                 WHERE Name LIKE 'San Francisco Hub%'];
+        Assert.isTrue(!stores.isEmpty());
         Integer caseCountBefore = [SELECT COUNT()
                                    FROM Case
                                    WHERE Store__c = :stores[0].Id];
 
+        System.debug('DML statements run before Test.startTest() ' + Limits.getDmlStatements());
         // Run the code
         Test.startTest();
+        System.debug('DML statements run after Test.startTest() ' + Limits.getDmlStatements());
         stores[0].Customer_Satisfaction_Score__c = 70;
         update stores;
         Test.stopTest();
 
         // Get any cases created after the code ran and confirm details
         List<Case> casesAfter = [SELECT Subject, Status, Priority, Store__c
-                                FROM Case WHERE Store__c = :stores[0].Id];
+                                FROM Case WHERE Store__c = :stores[0].Id
+                                ORDER BY LastModifiedDate DESC];
 
-        System.assertEquals(caseCountBefore + 1, casesAfter.size(), 'One new case should have been created');
-        System.assertEquals('Poor Customer Satisfaction', casesAfter[0].Subject,
+        Assert.areEqual(caseCountBefore + 1, casesAfter.size(), 'One new case should have been created');
+        Assert.areEqual('Poor Customer Satisfaction', casesAfter[0].Subject,
                             'Subject should be Poor Customer Satisfaction');
-        System.assertEquals('New', casesAfter[0].Status, 'Status should be New');
-        System.assertEquals('High', casesAfter[0].Priority, 'Priority should be High');
-        System.assertEquals(false, StoreTriggerHandler.platformEventsFailed, 'All platform events should succeed');
+        Assert.areEqual('New', casesAfter[0].Status, 'Status should be New');
+        Assert.areEqual('High', casesAfter[0].Priority, 'Priority should be High');
+        Assert.areEqual(false, StoreTriggerHandler.platformEventsFailed, 'All platform events should succeed');
     }
 
     @isTest
@@ -56,7 +49,7 @@ public with sharing class StoreTests {
        // Get the initial store and any existing cases
         List<Store__c> stores = [SELECT Id, Customer_Satisfaction_Score__c
                                  FROM Store__c
-                                 WHERE Name = 'San Francisco Hub'];
+                                 WHERE Name LIKE 'San Francisco Hub%'];
         Integer caseCountBefore = [SELECT COUNT()
                                    FROM Case
                                    WHERE Store__c = :stores[0].Id];
@@ -73,21 +66,11 @@ public with sharing class StoreTests {
         List<Case> openCases = extension.getOpenCases();
         Test.stopTest();                         
 		
-        System.assertEquals(caseCountBefore + 1, openCases.size(), 'One new case should have been created');
-        System.assertEquals('Poor Customer Satisfaction', openCases[0].Subject,
+        Assert.areEqual(caseCountBefore + 1, openCases.size(), 'One new case should have been created');
+        Assert.areEqual('Poor Customer Satisfaction', openCases[0].Subject,
                             'Subject should be Poor Customer Satisfaction');
-        System.assertEquals('New', openCases[0].Status, 'Status should be New');
-        System.assertEquals('High', openCases[0].Priority, 'Priority should be High');
-    }
-
-    @isTest
-    // Test to confirm Invocable method in Store Trigger Handler works correctly
-    static void testInvocableMethod() {
-        List<String> coffeeTypes = new List<String>{'Arabica;Robusta'};
-        List<StoreTriggerHandler.CoffeePrice> coffeePrices = StoreTriggerHandler.updateCoffeePrices(coffeeTypes);
-        String prices = coffeePrices[0].prices;
-        System.assert(prices.contains('Arabica'), 'Arabica should be part of the response');
-        System.assert(prices.contains('Robusta'), 'Robusta should be part of the response');
+        Assert.areEqual('New', openCases[0].Status, 'Status should be New');
+        Assert.areEqual('High', openCases[0].Priority, 'Priority should be High');
     }
 
     @isTest
@@ -127,7 +110,7 @@ public with sharing class StoreTests {
     static void testStoreCustomControllerUpdate() {
         Store__c currentStore = [SELECT Name, Buzz_Id__c, City__c, State_Province__c, Country__c
                                 FROM Store__c
-                                WHERE Name = 'San Francisco Hub' LIMIT 1];
+                                WHERE Name LIKE 'San Francisco Hub%' LIMIT 1];
         PageReference pageRef = Page.StoreCreateCustom;
         Test.setCurrentPage(pageRef);
         ApexPages.currentPage().getParameters().put('id', currentStore.Id);
@@ -145,7 +128,7 @@ public with sharing class StoreTests {
 
         Store__c updatedStore = [SELECT City__c
                                 FROM Store__c
-                                WHERE Name = 'San Francisco Hub' LIMIT 1];
+                                WHERE Name LIKE 'San Francisco Hub%' LIMIT 1];
         Assert.areEqual(controller.city, updatedStore.City__c,
                         'City should reflect what was set on the page');
     }
@@ -155,7 +138,7 @@ public with sharing class StoreTests {
     static void testStoreCustomControllerUpdateNoAccess() {
         Store__c currentStore = [SELECT Name, Buzz_Id__c, City__c, State_Province__c, Country__c
                                 FROM Store__c
-                                WHERE Name = 'San Francisco Hub' LIMIT 1];
+                                WHERE Name LIKE 'San Francisco Hub%' LIMIT 1];
         PageReference pageRef = Page.StoreCreateCustom;
         Test.setCurrentPage(pageRef);
         ApexPages.currentPage().getParameters().put('id', currentStore.Id);
@@ -173,7 +156,7 @@ public with sharing class StoreTests {
 
         Store__c updatedStore = [SELECT City__c
                                 FROM Store__c
-                                WHERE Name = 'San Francisco Hub' LIMIT 1];
+                                WHERE Name LIKE 'San Francisco Hub%' LIMIT 1];
         Assert.areEqual(currentStore.City__c, updatedStore.City__c,
                         'City should not have been changed');
         Assert.areEqual(1, ApexPages.getMessages().size(), 'There should be 1 message');
@@ -181,5 +164,30 @@ public with sharing class StoreTests {
                                                             'User does not have access to create or edit a store');
         Assert.areEqual(errorMessage, ApexPages.getMessages()[0],
                         'The error message should reflect the lack of access');
+    }
+
+    @isTest
+    // Test to confirm Invocable method in StoreTriggerHandler works correctly
+    static void testInvocableMethod() {
+        List<String> coffeeTypes = new List<String>{'Arabica;Robusta'};
+        List<StoreTriggerHandler.CoffeePrice> coffeePrices = StoreTriggerHandler.updateCoffeePrices(coffeeTypes);
+        String prices = coffeePrices[0].prices;
+        Assert.isTrue(prices.contains('Arabica'), 'Arabica should be part of the response');
+        Assert.isTrue(prices.contains('Robusta'), 'Robusta should be part of the response');
+    }
+
+    @isTest
+    // Test to confirm Invocable method in StoreTriggerHandler works correctly using mock framework
+    static void testExternalCallout() {
+        Test.startTest();
+        /* Please uncomment out line 130 and comment out lines 131-134 in StoreTriggerHandler 
+        to properly invoke the mock framework */
+        Test.setMock(HttpCalloutMock.class, new HttpMockCoffeePrice(200));
+        List<String> coffeeTypes = new List<String>{'Arabica;Robusta'};
+        List<StoreTriggerHandler.CoffeePrice> coffeePrices = StoreTriggerHandler.updateCoffeePrices(coffeeTypes);
+        String prices = coffeePrices[0].prices;
+        Assert.isTrue(prices.contains('Arabica'), 'Arabica should be part of the response');
+        Assert.isTrue(prices.contains('Robusta'), 'Robusta should be part of the response');
+        Test.stopTest();
     }
 }
