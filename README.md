@@ -86,7 +86,7 @@ Choose whether you want to use a developer org or scratch org. Choose a [develop
 
     1a. For Mac
     ```
-    sfdx force:data:soql:query -q "SELECT Id FROM RecordType WHERE DeveloperName = 'Supplier'" | grep -E -o "([0-9])\w+" > recordType.txt; sed -i '' "s/\supplierRecordTypeId/$(cat recordType.txt)/g" ../../data/suppliers.json; rm recordType.txt
+    sfdx force:data:soql:query -q "SELECT Id FROM RecordType WHERE DeveloperName = 'Supplier'" | grep -E -o "([0-9])\w+" > recordType.txt; sed -i '' "s/\supplierRecordTypeId/$(cat recordType.txt)/g" data/suppliers.json; rm recordType.txt
     ```
 
     1b. For Windows
