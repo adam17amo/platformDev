@@ -8,7 +8,7 @@ Thank you for starting one of my courses on Pluralsight! Here's some information
 - Salesforce Development: User Interface 
 - Salesforce Development: Testing, Debugging, and Deployment
 
-If you run into any issues or want to leave some feedback for me, feel free to drop a comment in Pluralsight or reach out to me on [Twitter](https://twitter.com/adam17amo) or [LinkedIn](https://www.linkedin.com/in/adamolshansky/)!
+If you run into any issues or want to leave some feedback for me, feel free to drop a comment in Pluralsight or reach out to me on [Twitter (X)](https://twitter.com/adam17amo) or [LinkedIn](https://www.linkedin.com/in/adamolshansky/)!
 
 ## How Do You Plan to Deploy Your Changes?
 
@@ -25,7 +25,8 @@ Choose whether you want to use a developer org or scratch org. Choose a [develop
 - [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
 - [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
 - [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+    - [Migrate from sfdx to sf](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_move_to_sf_v2.htm)
+- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference_unified.htm)
 
 # Options for Installing Files for Courses
 
@@ -43,29 +44,22 @@ Choose whether you want to use a developer org or scratch org. Choose a [develop
 
     3a. Authorize your Developer Edition org via your IDE or via a command
     ```
-    sfdx force:auth:web:login --setalias platformDev --instanceurl https://login.salesforce.com --setdefaultusername
+    sf org login web --alias platformDev --instance-url https://login.salesforce.com --set-default
     ```
     3b. If you don't already have your [Dev Hub authorized](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_cli_usernames_orgs.htm), authorize it via your IDE or run the first command. Once it's authorized, create your scratch org via the second command
     ```
-    sfdx auth:web:login --setdefaultdevhubusername --setalias my-hub-org
+    sf org login web --set-default-dev-hub --alias my-hub-org
     ```
     ```
-    sfdx force:org:create -s -f config/project-scratch-def.json -a platformDev --durationdays 30
+    sf org create scratch --set-default -f config/project-scratch-def.json --alias platformDev --duration-days 30
     ```
 4. Deploy the code to your org
-
-    4a. If you're using a Developer Edition Org to deploy the code
    ```
-   sfdx force:source:deploy -p force-app/main/default
+   sf project deploy start -d force-app/main/default
    ```
-
-   4b. If you're using a Scratch Org to deploy the code
-    ```
-    sfdx force:source:push
-    ```
 5. Assign yourself the permission set
     ```
-    sfdx force:user:permset:assign --permsetname Wired_Brain
+    sf org assign permset --name Wired_Brain
     ```
 
 ## Upload Code by Installing Package
@@ -86,12 +80,12 @@ Choose whether you want to use a developer org or scratch org. Choose a [develop
 
     1a. For Mac
     ```
-    sfdx force:data:soql:query -q "SELECT Id FROM RecordType WHERE DeveloperName = 'Supplier'" | grep -E -o "([0-9])\w+" > recordType.txt; sed -i '' "s/\supplierRecordTypeId/$(cat recordType.txt)/g" data/suppliers.json; rm recordType.txt
+    sf data query -q "SELECT Id FROM RecordType WHERE DeveloperName = 'Supplier'" | grep -E -o "([0-9])\w+" > recordType.txt; sed -i '' "s/\supplierRecordTypeId/$(cat recordType.txt)/g" data/suppliers.json; rm recordType.txt
     ```
 
     1b. For Windows
     ```
-    sfdx force:data:soql:query -q "SELECT Id FROM RecordType WHERE DeveloperName = 'Supplier'" | findstr /R "012[a-zA-Z0-9]*" > recordType.txt
+    sf data query -q "SELECT Id FROM RecordType WHERE DeveloperName = 'Supplier'" | findstr /R "012[a-zA-Z0-9]*" > recordType.txt
     ```
     ```
     (Get-Content data/suppliers.json) -replace 'supplierRecordTypeId', (Get-Content recordType.txt).substring(1,18) | Set-Content data/suppliers.json; rm recordType.txt
@@ -103,5 +97,5 @@ Choose whether you want to use a developer org or scratch org. Choose a [develop
 
 2. Import the sample data
     ```
-    sfdx force:data:tree:import -p data/data-plan.json
+    sf data import tree -p data/data-plan.json
     ```
